@@ -6,9 +6,9 @@
 }
 
 <h2>Create</h2>
-<form>
     @using(Html.BeginForm("Create", "Courses"))
      {
+        @Html.AntiForgeryToken();
         <div class="form-group">
             @Html.LabelFor(m => m.Place)
             @Html.TextBoxFor(m => m.Place, new { @class = "form-control" })
@@ -36,9 +36,7 @@
         </div>
                 
      }
-</form>
-@section script
-{
-    @Scripts.Render("~/bundles/jqueryval")    
-}
+@*@section script
+{ @Scripts.Render("~/bundles/jqueryval")    
+}*@
 

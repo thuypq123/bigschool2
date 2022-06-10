@@ -187,6 +187,10 @@
     <Compile Include="Migrations\202206091206052_PopulateCategoryTable.designer.cs">
       <DependentUpon>202206091206052_PopulateCategoryTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202206100225309_AddNameColumn.cs" />
+    <Compile Include="Migrations\202206100225309_AddNameColumn.designer.cs">
+      <DependentUpon>202206100225309_AddNameColumn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -206,6 +210,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\customStyle.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -258,6 +263,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Courses\Create.cshtml" />
+    <Content Include="Views\Courses\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -284,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202206091206052_PopulateCategoryTable.resx">
       <DependentUpon>202206091206052_PopulateCategoryTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206100225309_AddNameColumn.resx">
+      <DependentUpon>202206100225309_AddNameColumn.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

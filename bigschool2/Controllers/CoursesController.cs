@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace bigschool2.Controllers
 {
@@ -45,6 +46,14 @@ namespace bigschool2.Controllers
             _dbContext.Courses.Add(course);
             _dbContext.SaveChanges();
             return RedirectToAction("Index", "Home");
+        }
+        public ActionResult Index()
+        {
+            var upcomingCourses = _dbContext.Courses
+                .Include(c => c.Lecturer)
+                .Include(c => c.Category)
+                .Where(c => c.DateTime > DateTime.Now);
+            return View(upcomingCourses);
         }
     }
 }

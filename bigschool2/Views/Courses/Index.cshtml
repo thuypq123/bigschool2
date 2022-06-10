@@ -1,0 +1,23 @@
+﻿@model IEnumerable<bigschool2.Models.Course>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<div class="row">
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>
+                <span>
+                    @item.DateTime 
+                </span>
+                <span>
+                    @item.Lecturer.Name
+                </span>
+            </li>
+        }
+    </ul>
+</div>
+
