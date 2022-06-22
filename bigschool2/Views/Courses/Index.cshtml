@@ -5,17 +5,27 @@
 }
 
 <h2>Index</h2>
-<div class="row">
-    <ul>
+<div class="row">x
+    <ul class="course">
         @foreach (var item in Model)
         {
             <li>
-                <span>
-                    @item.Place 
-                </span>
-                <span>
-                    @item.Lecturer.Name
-                </span>
+                <div class="date">
+                    <div class="month">
+                        @item.DateTime.ToString("MM");
+                    </div>
+                    <div class="day">
+                        @item.DateTime.ToString("dd");
+                    </div>
+                </div>
+                <div class="details">
+                    <span class="lecturer">
+                        @item.Lecturer.Name
+                    </span>
+                    <span class="category">
+                        @*@item.Category.Name*@
+                    </span>
+                </div>
             </li>
         }
     </ul>

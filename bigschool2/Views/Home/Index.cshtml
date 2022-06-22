@@ -3,19 +3,58 @@
     ViewBag.Title = "Home Page";
 }
 <div class="row">
-    <ul>
-        <ul>
-            @foreach (var item in Model)
-            {
-                <li>
-                    <span>
-                        @item.DateTime
+    <ul class="course">
+        @foreach (var item in Model)
+        {
+            <li>
+                <div class="date">
+                    <div class="month">
+                        @item.DateTime.ToString("MM");
+                    </div>
+                    <div class="day">
+                        @item.DateTime.ToString("dd");
+                    </div>
+                </div>
+                <div class="details">
+                    <span class="lecturer">
+                        @item.Lecturer.Name;
+                        <button class="btn btn-default btn-sm js-toggle-follow" data-user-id="@item.LecturerId">Follow</button>
                     </span>
-                    <span>
-                        @item.Lecturer.Name
+                    <span class="category">
+                        @*@item.Category.Name;*@
                     </span>
-                </li>
-            }
-        </ul>
+                    <button data-course-id=" @item.Id" class="btn btn-primary">Going?</button>
+                </div>
+            </li>
+        }
     </ul>
+    @section scripts{
+        <script>
+            $(document).ready(function () {
+                $(".js-toggle-attendance").click(function (e) {
+                    var button = $(e.target);
+                    $.post("api/attendances", { courseId: button.attr("data-course-id") })
+                        .done(function () {
+                            button
+                                .removeClass("btn-default")
+                                .addClass("btn-info")
+                                .text("Giong");
+                        })
+                        .fail(function () {
+                            alert("Somthing failed!");
+                        });
+                });
+                $(".js-toggle-follow").click(function (e) {
+                    var button = $(e.target);
+                    $.post("api/followings", { followeeId: button.attr("data-user-id") })
+                        .done(function () {
+                            button.text("Following");
+                        })
+                        .fail(function () {
+                            alert("Somthing failed!");
+                        });
+                });
+            });
+        </script>
+        }
 </div>
