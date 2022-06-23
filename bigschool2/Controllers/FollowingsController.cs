@@ -33,7 +33,7 @@ namespace bigschool2.Controllers
             };
 
             _dbContext.Followings.Add(following);
-            _dbContext.SaveChanges();
+            _dbContext.SaveChangesAsync();
 
             return Ok();
         }

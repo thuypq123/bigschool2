@@ -23,7 +23,7 @@
                     <span class="category">
                         @*@item.Category.Name;*@
                     </span>
-                    <button data-course-id=" @item.Id" class="btn btn-primary">Going?</button>
+                    <button data-course-id=" @item.Id" class="btn btn-default js-toggle-attendance">Going?</button>
                 </div>
             </li>
         }
@@ -33,11 +33,11 @@
             $(document).ready(function () {
                 $(".js-toggle-attendance").click(function (e) {
                     var button = $(e.target);
-                    $.post("api/attendances", { courseId: button.attr("data-course-id") })
+                    $.post("/api/attendances", { courseId: button.attr("data-course-id") })
                         .done(function () {
                             button
                                 .removeClass("btn-default")
-                                .addClass("btn-info")
+                                .addClass("btn-primary")
                                 .text("Giong");
                         })
                         .fail(function () {
